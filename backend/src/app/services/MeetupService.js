@@ -7,7 +7,7 @@ import {
 } from 'date-fns';
 import { Op } from 'sequelize';
 
-import { Meetup, User } from '../models';
+import { File, Meetup, User } from '../models';
 
 class MeetupService {
   async list(query) {
@@ -32,7 +32,7 @@ class MeetupService {
 
     const meetups = await Meetup.findAll({
       where,
-      attributes: ['id', 'title', 'description', 'date'],
+      attributes: ['id', 'title', 'description', 'date', 'location'],
       limit: 10,
       offset: (page - 1) * 10,
       include: {
@@ -46,6 +46,29 @@ class MeetupService {
     return { status: 200, data: meetups };
   }
 
+  async find(id) {
+    const meetup = await Meetup.findOne({
+      where: {
+        id,
+      },
+      attributes: ['id', 'title', 'description', 'date', 'location'],
+      include: [
+        {
+          model: User,
+          as: 'user',
+          attributes: ['id', 'name', 'email'],
+        },
+        {
+          model: File,
+          as: 'banner',
+          attributes: ['id', 'url', 'path'],
+        },
+      ],
+    });
+
+    return { status: 200, data: meetup };
+  }
+
   async create(meetupData) {
     const meetup = await Meetup.create(meetupData);
 
@@ -54,7 +77,10 @@ class MeetupService {
     const hourStart = startOfHour(parseISO(meetupData.date));
 
     if (isBefore(hourStart, new Date())) {
-      return { status: 400, data: { error: 'Past dates are not permitted' } };
+      return {
+        status: 400,
+        data: { error: 'Não é permitido criar eventos com datas passadas.' },
+      };
     }
 
     return { status: 200, data: meetup };
@@ -68,13 +94,19 @@ class MeetupService {
     // Check if user is the organizer
 
     if (!meetup) {
-      return { status: 401, data: { error: "You can't edit this meetup" } };
+      return {
+        status: 401,
+        data: { error: 'Você não pode editar este evento.' },
+      };
     }
 
     // Check meetup date
 
     if (isBefore(meetup.date, new Date())) {
-      return { status: 400, data: { error: 'Past meetups are not editable' } };
+      return {
+        status: 400,
+        data: { error: 'Eventos passados não podem ser editados.' },
+      };
     }
 
     // Check for past dates
@@ -82,7 +114,10 @@ class MeetupService {
     const hourStart = startOfHour(parseISO(meetupData.date));
 
     if (hourStart && isBefore(hourStart, new Date())) {
-      return { status: 400, data: { error: 'Past dates are not permitted' } };
+      return {
+        status: 400,
+        data: { error: 'Não é permitido editar eventos com datas passadas.' },
+      };
     }
 
     const updatedMeetup = await meetup.update(meetupData);
@@ -98,7 +133,10 @@ class MeetupService {
     // Check if user is the organizer
 
     if (!meetup) {
-      return { status: 401, data: { error: "You can't delete this meetup" } };
+      return {
+        status: 401,
+        data: { error: 'Você não pode cancelar este evento.' },
+      };
     }
 
     // Check meetup date
@@ -106,7 +144,7 @@ class MeetupService {
     if (isBefore(meetup.date, new Date())) {
       return {
         status: 400,
-        data: { error: 'Past meetups are not deletable' },
+        data: { error: 'Não é possivel cancelar eventos que já aconteceram.' },
       };
     }
 

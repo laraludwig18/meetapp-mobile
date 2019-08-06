@@ -2,11 +2,11 @@ import { string, object, number, date } from 'yup';
 
 const validateMeetupCreation = async (req, res, next) => {
   const schema = object().shape({
-    title: string().required('Title is required'),
-    description: string().required('Description is required'),
-    location: string().required('Location is required'),
-    date: date().required('Date is required'),
-    banner_id: number().required('Banner is required'),
+    title: string().required('Título é obrigatório.'),
+    description: string().required('Descrição é obrigatória.'),
+    location: string().required('Localização é obrigatória.'),
+    date: date().required('Data é obrigatória.'),
+    banner_id: number().required('Banner é obrigatório.'),
   });
 
   try {

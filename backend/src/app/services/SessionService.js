@@ -8,13 +8,13 @@ class SessionService {
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
-      return { status: 401, data: { error: 'User not found.' } };
+      return { status: 401, data: { error: 'Usuário não encontrado.' } };
     }
 
     const isPasswordValid = await user.checkPassword(password);
 
     if (!isPasswordValid) {
-      return { status: 401, data: { error: 'Password does not match.' } };
+      return { status: 401, data: { error: 'Login inválido.' } };
     }
 
     const { id, name } = user;

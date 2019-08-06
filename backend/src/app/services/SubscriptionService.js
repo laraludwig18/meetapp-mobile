@@ -49,7 +49,10 @@ class SubscriptionService {
     });
 
     if (!meetup) {
-      return { status: 404, data: { error: "Can't find the selected meetup" } };
+      return {
+        status: 404,
+        data: { error: 'Não foi possivel encontrar o evento selecionado.' },
+      };
     }
 
     // Check past meetup
@@ -57,7 +60,9 @@ class SubscriptionService {
     if (isBefore(meetup.date, new Date())) {
       return {
         status: 400,
-        data: { error: "You cant't subscribe to past meetups" },
+        data: {
+          error: 'Você não pode se inscrever em eventos que já aconteceram.',
+        },
       };
     }
 
@@ -66,7 +71,9 @@ class SubscriptionService {
     if (meetup.user_id === subscription.user_id) {
       return {
         status: 401,
-        data: { error: "You cant't subscribe to own meetups" },
+        data: {
+          error: 'Você não pode se inscrever nos seus próprios eventos.',
+        },
       };
     }
 
@@ -82,7 +89,7 @@ class SubscriptionService {
     if (alreadySubscribed) {
       return {
         status: 400,
-        data: { error: 'You already subscribed to this meetup' },
+        data: { error: 'Você já se inscreveu para este evento.' },
       };
     }
 
@@ -106,7 +113,9 @@ class SubscriptionService {
     if (checkTime) {
       return {
         status: 400,
-        data: { error: 'You already subscribed to a meetup on the same time' },
+        data: {
+          error: 'Você já se inscreveu para outro evento neste mesmo horário.',
+        },
       };
     }
 

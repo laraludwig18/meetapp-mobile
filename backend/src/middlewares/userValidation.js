@@ -2,13 +2,13 @@ import { string, object, ref } from 'yup';
 
 const validateUserCreation = async (req, res, next) => {
   const schema = object().shape({
-    name: string().required('Name is required'),
+    name: string().required('Nome é obrigatório.'),
     email: string()
-      .email('Email invalid')
-      .required('Email is required'),
+      .email('Email inválido.')
+      .required('Email é obrigatório.'),
     password: string()
-      .required('Password is required')
-      .min(6, 'Password must have 6 characters'),
+      .required('Senha é obrigatória.')
+      .min(6, 'Senha deve possuir, no mínimo, 6 caracteres.'),
   });
 
   try {
@@ -23,20 +23,23 @@ const validateUserCreation = async (req, res, next) => {
 const validateUserUpdate = async (req, res, next) => {
   const schema = object().shape({
     name: string(),
-    email: string().email('Email invalid'),
-    oldPassword: string().min(6, 'Actual password must have 6 characters'),
+    email: string().email('Email inválido.'),
+    oldPassword: string().min(
+      6,
+      'Senha atual deve ter, no mínimo, 6 caracteres.'
+    ),
     password: string()
-      .min(6, 'New password must have 6 characters')
+      .min(6, 'Nova senha deve possuir, no mínimo, 6 caracteres.')
       .when('oldPassword', (oldPassword, field) =>
-        oldPassword ? field.required('New password is required') : field
+        oldPassword ? field.required('Nova senha é obrigatória.') : field
       ),
     confirmPassword: string().when('password', (password, field) =>
       password
         ? field
-            .required('Confirmation of password is required')
+            .required('Confirmação de senha é obrigatória.')
             .oneOf(
               [ref('password')],
-              'New Password and confirmation does not match'
+              'Nova senha e sua confirmação não coincidem.'
             )
         : field
     ),

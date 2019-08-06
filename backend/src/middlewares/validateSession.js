@@ -3,9 +3,9 @@ import { string, object } from 'yup';
 export default async (req, res, next) => {
   const schema = object().shape({
     email: string()
-      .email('Email invalid')
-      .required('Email is required'),
-    password: string().required('Password is required'),
+      .email('Email inválido.')
+      .required('Email é obrigatório.'),
+    password: string().required('Senha é obrigatória.'),
   });
 
   try {

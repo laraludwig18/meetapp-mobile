@@ -2,6 +2,7 @@ import 'dotenv/config';
 import Youch from 'youch';
 import * as Sentry from '@sentry/node';
 import express from 'express';
+import cors from 'cors';
 import 'express-async-errors';
 
 import { resolve } from 'path';
@@ -24,6 +25,7 @@ class App {
 
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
+    this.server.use(cors());
     this.server.use(express.json());
     this.server.use(
       '/files',
@@ -44,7 +46,9 @@ class App {
         return res.status(500).json(errors);
       }
 
-      return res.status(500).json({ error: 'Internal Server Error' });
+      return res
+        .status(500)
+        .json({ error: 'Houve um erro, tente novamente mais tarde!' });
     });
   }
 }

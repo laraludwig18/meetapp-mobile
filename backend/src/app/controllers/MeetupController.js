@@ -8,6 +8,13 @@ class MeetupController {
     return res.status(status).json(data);
   }
 
+  async find(req, res) {
+    const { meetupId } = req.params;
+    const { data, status } = await MeetupService.find(meetupId);
+
+    return res.status(status).json(data);
+  }
+
   async store(req, res) {
     const { status, data } = await MeetupService.create({
       ...req.body,

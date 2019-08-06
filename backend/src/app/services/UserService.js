@@ -6,7 +6,7 @@ class UserService {
     const userExists = await User.findOne({ where: { email } });
 
     if (userExists) {
-      return { status: 401, data: { error: 'User already exists' } };
+      return { status: 401, data: { error: 'Usuário já existente.' } };
     }
 
     const { id, name, provider } = await User.create(user);
@@ -23,7 +23,7 @@ class UserService {
       const userExists = await User.findOne({ where: { email: newEmail } });
 
       if (userExists) {
-        return { status: 401, data: { error: 'User already exists' } };
+        return { status: 401, data: { error: 'Usuário já existente.' } };
       }
     }
 
@@ -31,7 +31,7 @@ class UserService {
       const isPasswordValid = await user.checkPassword(oldPassword);
 
       if (!isPasswordValid) {
-        return { status: 401, data: { error: 'Password does not match.' } };
+        return { status: 401, data: { error: 'Senhas não coincidem.' } };
       }
     }
 
