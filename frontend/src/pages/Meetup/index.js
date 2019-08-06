@@ -11,11 +11,11 @@ import {
   saveMeetupRequest,
 } from '~/store/modules/meetup/actions';
 import DatePicker from '~/components/DatePicker';
-import Banner from './Banner';
+import BannerInput from './BannerInput';
 import { Container } from './styles';
 
 const schema = Yup.object().shape({
-  // banner: Yup.number().required('O banner é obrigatório'),
+  banner_id: Yup.string().required('O banner é obrigatório'),
   title: Yup.string().required('O campo título é obrigatório'),
   description: Yup.string().required('O campo descrição é obrigatório'),
   date: Yup.date('Data inválida').required('O campo data é obrigatório'),
@@ -35,7 +35,6 @@ export default function Meetup({ match }) {
   }, [dispatch, hasMeetup, match]);
 
   function handleSubmit(data) {
-    console.tron.log(data);
     if (hasMeetup) {
       dispatch(updateMeetup(data, meetup.id));
     } else {
@@ -49,7 +48,7 @@ export default function Meetup({ match }) {
         <p>Carregando...</p>
       ) : (
         <Form schema={schema} onSubmit={handleSubmit} initialData={meetup}>
-          <Banner name="banner_id" />
+          <BannerInput name="banner_id" />
           <Input name="title" placeholder="Título do Meetup" />
           <Input
             name="description"

@@ -5,8 +5,10 @@ import { MdCameraAlt } from 'react-icons/md';
 import api from '~/services/api';
 import { Label } from './styles';
 
-export default function Banner() {
+export default function BannerInput() {
   const { defaultValue, registerField } = useField('banner');
+  const { error } = useField('banner_id');
+
   const [file, setFile] = useState(defaultValue && defaultValue.id);
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);
 
@@ -20,7 +22,8 @@ export default function Banner() {
         path: 'dataset.file',
       });
     }
-  }, [ref, registerField]);
+    // eslint-disable-next-line
+  }, [ref.current]);
 
   async function handleChange(e) {
     const data = new FormData();
@@ -56,7 +59,7 @@ export default function Banner() {
           ref={ref}
         />
       </Label>
-      {/* {error && <span>{error}</span>} */}
+      {error && <span>{error}</span>}
     </>
   );
 }

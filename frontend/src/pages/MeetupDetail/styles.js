@@ -76,6 +76,7 @@ export const Meetup = styled.div`
   img {
     width: 100%;
     height: 300px;
+    background: #eee;
   }
 
   p {

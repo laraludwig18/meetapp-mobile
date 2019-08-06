@@ -37,6 +37,7 @@ export default function DatePicker({ name }) {
           dateFormat="dd/MM/yyyy HH:mm"
           onChange={date => setSelected(date)}
           ref={ref}
+          autoComplete="off"
         />
       </Container>
 
