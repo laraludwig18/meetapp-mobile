@@ -30,20 +30,32 @@ class MeetupService {
       };
     }
 
+    const allMeetups = await Meetup.findAll({ where });
+
     const meetups = await Meetup.findAll({
       where,
       attributes: ['id', 'title', 'description', 'date', 'location'],
       limit: 10,
       offset: (page - 1) * 10,
-      include: {
-        model: User,
-        as: 'user',
-        attributes: ['id', 'name', 'email'],
-      },
+      include: [
+        {
+          model: User,
+          as: 'user',
+          attributes: ['id', 'name', 'email'],
+        },
+        {
+          model: File,
+          as: 'banner',
+          attributes: ['name', 'path', 'url'],
+        },
+      ],
       order: ['date'],
     });
 
-    return { status: 200, data: meetups };
+    return {
+      status: 200,
+      data: { meetups, numPages: Math.ceil(allMeetups.length / 10) },
+    };
   }
 
   async find(id) {
