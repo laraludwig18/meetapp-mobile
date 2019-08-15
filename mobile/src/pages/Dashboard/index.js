@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { Alert } from 'react-native';
 import { addDays, subDays } from 'date-fns';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -61,6 +62,16 @@ export default function Dashboard() {
     setPage(page + 1);
   }
 
+  async function subscribe(meetup) {
+    try {
+      await api.post(`subscriptions/${meetup.id}`);
+      Alert.alert('', 'Inscrição realizada com sucesso! :)');
+    } catch (error) {
+      const { data } = error.response;
+      Alert.alert('Houve um erro ao realizar a sua inscrição', data.error);
+    }
+  }
+
   function onEndReached() {
     if (page < numPages) {
       setPaginationLoading(true);
@@ -102,7 +113,9 @@ export default function Dashboard() {
           onEndReachedThreshold={0.2}
           ListFooterComponent={renderListFooter}
           keyExtractor={item => String(item.id)}
-          renderItem={({ item }) => <Meetup item={item} />}
+          renderItem={({ item }) => (
+            <Meetup buttonAction={() => subscribe(item)} item={item} />
+          )}
         />
       </Container>
     </Background>

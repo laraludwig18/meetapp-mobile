@@ -14,6 +14,14 @@ class SubscriptionController {
 
     return res.status(status).json(data);
   }
+
+  async delete(req, res) {
+    const { status, data } = await SubscriptionService.remove(
+      req.params.subscriptionId
+    );
+
+    return res.status(status).json(data);
+  }
 }
 
 export default new SubscriptionController();

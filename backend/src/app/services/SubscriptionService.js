@@ -1,7 +1,7 @@
 import { isBefore } from 'date-fns';
 import { Op } from 'sequelize';
 
-import { Meetup, User, Subscription } from '../models';
+import { File, Meetup, User, Subscription } from '../models';
 
 import { Queue } from '../../lib';
 import { SubscribeEmail } from '../../jobs';
@@ -24,6 +24,18 @@ class SubscriptionService {
             'location',
             'date',
             'user_id',
+          ],
+          include: [
+            {
+              model: User,
+              as: 'user',
+              attributes: ['id', 'name', 'email'],
+            },
+            {
+              model: File,
+              as: 'banner',
+              attributes: ['name', 'path', 'url'],
+            },
           ],
           where: {
             date: {
@@ -132,6 +144,42 @@ class SubscriptionService {
     const newSubscription = await Subscription.create(subscription);
 
     return { status: 200, data: newSubscription };
+  }
+
+  async remove(subscription_id) {
+    const subscription = await Subscription.findOne({
+      where: { id: subscription_id },
+      include: [
+        {
+          model: Meetup,
+          as: 'meetup',
+          attributes: [
+            'id',
+            'title',
+            'description',
+            'location',
+            'date',
+            'user_id',
+          ],
+        },
+      ],
+    });
+
+    // Check meetup date
+
+    if (isBefore(subscription.meetup.date, new Date())) {
+      return {
+        status: 400,
+        data: {
+          error:
+            'Não é possivel cancelar inscrição em eventos que já aconteceram.',
+        },
+      };
+    }
+
+    await subscription.destroy();
+
+    return { status: 200, data: { ok: true } };
   }
 }
 

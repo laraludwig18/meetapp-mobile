@@ -12,7 +12,7 @@ import {
   Wrapper,
 } from './styles';
 
-export default function Meetup({ item, isSubscribed }) {
+export default function Meetup({ item, isSubscribed, buttonAction }) {
   const buttonText = useMemo(() => {
     return `${isSubscribed ? 'Cancelar' : 'Realizar'} inscrição`;
   }, [isSubscribed]);
@@ -39,7 +39,9 @@ export default function Meetup({ item, isSubscribed }) {
           <Text>Organizador:</Text>
           <Text>{item.user.name}</Text>
         </TextContainer>
-        <SubscriptionButton onPress={() => {}}>{buttonText}</SubscriptionButton>
+        <SubscriptionButton onPress={buttonAction}>
+          {buttonText}
+        </SubscriptionButton>
       </Wrapper>
     </Container>
   );
