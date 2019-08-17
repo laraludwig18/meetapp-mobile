@@ -159,8 +159,8 @@ function Profile({ isFocused }) {
             onSubmitEditing={handleSubmit}
           />
           <SubmitButton onPress={handleSubmit}>Salvar perfil</SubmitButton>
+          <LogoutButton onPress={logout}>Sair do Meetapp</LogoutButton>
         </Form>
-        <LogoutButton onPress={logout}>Sair do Meetapp</LogoutButton>
       </Container>
     </Background>
   );

@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
+    "android": "react-native run-android",
+    "start:cache": "react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint .",
     "postinstall": "jetify"

@@ -31,6 +31,7 @@ export const EmptyListContainer = styled.SafeAreaView`
 
 export const EmptyListText = styled.Text`
   color: #fff;
+  text-align: center;
   font-size: 14px;
 `;
 
