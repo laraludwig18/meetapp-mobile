@@ -22,6 +22,18 @@ export const DateContainer = styled.View`
   justify-content: center;
 `;
 
+export const EmptyListContainer = styled.SafeAreaView`
+  flex: 1;
+  margin: 0 15px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const EmptyListText = styled.Text`
+  color: #fff;
+  font-size: 14px;
+`;
+
 export const Loader = styled.ActivityIndicator.attrs({
   color: '#f94d6a',
 })`
@@ -30,6 +42,9 @@ export const Loader = styled.ActivityIndicator.attrs({
 
 export const MeetupList = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
+  contentContainerStyle: {
+    flexGrow: 1,
+  },
 })`
   margin-top: 30px;
 `;

@@ -49,6 +49,18 @@ export default function Meetup({ item, isSubscribed, buttonAction }) {
 
 Meetup.propTypes = {
   isSubscribed: PropTypes.bool,
+  buttonAction: PropTypes.func.isRequired,
+  item: PropTypes.shape({
+    banner: PropTypes.shape({
+      url: PropTypes.string,
+    }),
+    user: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+    title: PropTypes.string,
+    dateFormatted: PropTypes.string,
+    location: PropTypes.string,
+  }).isRequired,
 };
 
 Meetup.defaultProps = {

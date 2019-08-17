@@ -14,6 +14,8 @@ import {
   DateText,
   DateContainer,
   DateButton,
+  EmptyListContainer,
+  EmptyListText,
   Loader,
   MeetupList,
 } from './styles';
@@ -50,7 +52,6 @@ export default function Dashboard() {
 
   useEffect(() => {
     loadMeetups();
-    // eslint-disable-next-line
   }, [date]);
 
   async function loadPaginationMeetups() {
@@ -112,6 +113,13 @@ export default function Dashboard() {
           onEndReached={onEndReached}
           onEndReachedThreshold={0.2}
           ListFooterComponent={renderListFooter}
+          ListEmptyComponent={
+            <EmptyListContainer>
+              <EmptyListText>
+                Não há eventos cadastrados nesta data.
+              </EmptyListText>
+            </EmptyListContainer>
+          }
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
             <Meetup buttonAction={() => subscribe(item)} item={item} />

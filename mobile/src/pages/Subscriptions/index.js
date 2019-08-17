@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 import { withNavigationFocus } from 'react-navigation';
+import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 import Background from '~/components/Background';
@@ -8,7 +9,12 @@ import Header from '~/components/Header';
 import Meetup from '~/components/Meetup';
 import { dateTimeFormat } from '~/utils/format';
 
-import { Container, MeetupList } from './styles';
+import {
+  Container,
+  EmptyListContainer,
+  EmptyListText,
+  MeetupList,
+} from './styles';
 
 function Subscriptions({ isFocused }) {
   const [subscriptions, setSubscriptions] = useState([]);
@@ -48,6 +54,13 @@ function Subscriptions({ isFocused }) {
         <MeetupList
           data={subscriptions}
           keyExtractor={item => String(item.subscriptionId)}
+          ListEmptyComponent={
+            <EmptyListContainer>
+              <EmptyListText>
+                Você não se inscreveu em nenhum evento futuro.
+              </EmptyListText>
+            </EmptyListContainer>
+          }
           renderItem={({ item }) => (
             <Meetup
               isSubscribed
@@ -62,3 +75,7 @@ function Subscriptions({ isFocused }) {
 }
 
 export default withNavigationFocus(Subscriptions);
+
+Subscriptions.propTypes = {
+  isFocused: PropTypes.bool.isRequired,
+};

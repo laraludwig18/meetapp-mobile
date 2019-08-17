@@ -32,7 +32,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     camelcase: 'off',
     'no-console': ['error', { allow: ['tron'] }],
-    'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
   },
   settings: {
