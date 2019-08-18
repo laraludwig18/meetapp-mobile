@@ -19,7 +19,7 @@ import {
   validateUserCreation,
   validateUserUpdate,
   validateSession,
-} from './middlewares';
+} from './app/middlewares';
 
 const routes = new Router();
 const upload = multer(multerConfig);
