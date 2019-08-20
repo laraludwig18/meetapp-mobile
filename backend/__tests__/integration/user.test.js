@@ -5,6 +5,12 @@ import app from '../../src/app';
 import factory from '../factories/userFactories';
 import truncate from '../util/truncate';
 
+async function saveUser(user) {
+  return request(app)
+    .post('/users')
+    .send(user);
+}
+
 describe('User', () => {
   beforeEach(async () => {
     await truncate();
@@ -23,9 +29,7 @@ describe('User', () => {
   it('should be able to register', async () => {
     const user = await factory.attrs('User');
 
-    const response = await request(app)
-      .post('/users')
-      .send(user);
+    const response = await saveUser(user);
 
     expect(response.body).toHaveProperty('id');
   });
@@ -33,36 +37,26 @@ describe('User', () => {
   it('should not be able to register with duplicated email', async () => {
     const user = await factory.attrs('User');
 
-    await request(app)
-      .post('/users')
-      .send(user);
+    await saveUser(user);
 
-    const response = await request(app)
-      .post('/users')
-      .send(user);
+    const response = await saveUser(user);
 
     expect(response.body.error).toBe('Usuário já existente.');
   });
 
-  it('should be able to update user name', async () => {
-    const user = await factory.attrs('User');
+  it('should return invalid email', async () => {
+    const { name, password } = await factory.attrs('User');
 
-    await request(app)
-      .post('/users')
-      .send(user);
+    const response = await saveUser({
+      name,
+      email: 'teste.com',
+      password,
+    });
 
-    const login = await request(app)
-      .post('/sessions')
-      .send({ email: user.email, password: user.password });
+    expect(response.body.error).toBe('Email inválido.');
+  });
 
-    const response = await request(app)
-      .put('/users')
-      .set('Authorization', `Bearer ${login.body.token}`)
-      .send({
-        name: 'lara',
-        email: user.email,
-      });
-
-    expect(response.body.name).toBe('lara');
+  afterAll(async () => {
+    await truncate();
   });
 });
