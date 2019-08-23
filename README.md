@@ -3,25 +3,15 @@
 App agregador de eventos para desenvolvedores
 
 
-## Telas
-
-### Frontend
-
-
-![login](https://imgur.com/yiaXC80)
-
-
-
-
 ## Inicialização
 
 ### Backend
 
-**docker run --name databaseChallenge -e POSTGRES_PASSWORD=suasenha -p 5432:5432 -d postgres** para configurar banco de dados postgres
+**docker run --name databaseChallenge -e POSTGRES_PASSWORD=suasenha -p 5432:5432 -d postgres** para criar banco de dados postgres
 
 **yarn sequelize db:migrate** para migrar tabelas para o postgres
 
-**docker run --name redismeet -p 6379:6379 -d -t redis:alpine** para configurar banco de dados redis
+**docker run --name redismeet -p 6379:6379 -d -t redis:alpine** para criar banco de dados redis
 
 **yarn** para instalar as dependências
 
