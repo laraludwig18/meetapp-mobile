@@ -21,11 +21,11 @@ export default function Header() {
       </Link>
       <div>
         <Profile>
-          <p>{name}</p>
+          <p data-testid="user-name">{name}</p>
           <Link to="/profile">Meu perfil</Link>
         </Profile>
 
-        <button type="button" onClick={handleSignOut}>
+        <button data-testid="sign-out" type="button" onClick={handleSignOut}>
           Sair
         </button>
       </div>

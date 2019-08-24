@@ -37,17 +37,21 @@ export default function MeetupDetail({ match }) {
   return (
     <Container>
       {loading ? (
-        <p>Carregando...</p>
+        <p data-testid="loading">Carregando...</p>
       ) : (
         <>
           <div>
-            <h1>{meetup.title}</h1>
+            <h1 data-testid="title">{meetup.title}</h1>
             <div>
               <Link to={`/meetup/${meetup.id}`}>
                 <MdCreate size={20} color="#fff" />
                 Editar
               </Link>
-              <button type="button" onClick={cancelMeetup}>
+              <button
+                data-testid="cancel-meetup"
+                type="button"
+                onClick={cancelMeetup}
+              >
                 <MdDelete size={20} color="#fff" />
                 Cancelar
               </button>
@@ -55,13 +59,13 @@ export default function MeetupDetail({ match }) {
           </div>
           <Meetup>
             <img src={meetup.banner.url} alt={meetup.title} />
-            <p>{meetup.description}</p>
+            <p data-testid="description">{meetup.description}</p>
             <div>
               <MdDateRange size={20} color="rgba(255, 255, 255, 0.6)" />
               <span>{dateFormatted}</span>
 
               <MdLocationOn size={20} color="rgba(255, 255, 255, 0.6)" />
-              <span>{meetup.location}</span>
+              <span data-testid="location">{meetup.location}</span>
             </div>
           </Meetup>
         </>
