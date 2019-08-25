@@ -109,6 +109,7 @@ export default function Dashboard() {
         </DateContainer>
 
         <MeetupList
+          testID="meetup-list"
           data={meetups}
           onEndReached={onEndReached}
           onEndReachedThreshold={0.2}

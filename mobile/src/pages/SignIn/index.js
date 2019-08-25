@@ -64,7 +64,6 @@ export default function SignIn({ navigation }) {
             hasError={!!errors.email}
             messageError={errors.email || null}
             value={email}
-            testID="email"
             onChangeText={setEmail}
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
@@ -74,7 +73,6 @@ export default function SignIn({ navigation }) {
             placeholder="Sua senha secreta"
             secureTextEntry
             value={password}
-            testID="password"
             hasError={!!errors.password}
             messageError={errors.password || null}
             onChangeText={setPassword}
@@ -82,11 +80,7 @@ export default function SignIn({ navigation }) {
             onSubmitEditing={handleSubmit}
           />
 
-          <SubmitButton
-            testID="sign-in"
-            loading={loading}
-            onPress={handleSubmit}
-          >
+          <SubmitButton loading={loading} onPress={handleSubmit}>
             Entrar
           </SubmitButton>
         </Form>
