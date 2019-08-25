@@ -41,9 +41,9 @@ export default function Dashboard() {
           Novo meetup
         </Link>
       </div>
-      <MeetupList>
+      <MeetupList data-testid="meetup-list">
         {meetups.map(meetup => (
-          <Meetup>
+          <Meetup key={meetup.id}>
             <Link to={`/meetup-detail/${meetup.id}`}>
               <p>{meetup.title}</p>
               <div>

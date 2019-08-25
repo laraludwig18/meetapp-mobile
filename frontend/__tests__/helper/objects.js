@@ -34,3 +34,15 @@ export const meetup = {
     path: 'f9dc001f0848b3c8d86bdd18e43d05e5.jpeg',
   },
 };
+
+export const schedule = {
+  id: 33,
+  title: 'Conhecendo React Native 4',
+  description: 'Workshop sobre React Native',
+  location: 'Teste',
+  date: '2019-08-20T20:00:00.000Z',
+  createdAt: '2019-08-14T13:34:30.145Z',
+  updatedAt: '2019-08-14T13:34:30.145Z',
+  user_id: 9,
+  banner_id: 6,
+};

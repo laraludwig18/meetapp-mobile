@@ -15,7 +15,7 @@ const match = {
   },
 };
 
-describe('TechList component', () => {
+describe('MeetupDetail page', () => {
   it('should render loading', () => {
     useSelector.mockImplementation(cb =>
       cb({
