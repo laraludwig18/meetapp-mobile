@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, wait } from '@testing-library/react';
 
 import { login } from '../helper/objects';
 import SignIn from '~/pages/SignIn';
@@ -10,7 +10,7 @@ jest.mock('react-router-dom');
 jest.mock('react-redux');
 
 describe('SignIn page', () => {
-  it('should call signInRequest', () => {
+  it('should call signInRequest', async () => {
     const dispatch = jest.fn();
 
     useDispatch.mockReturnValue(dispatch);
@@ -25,10 +25,10 @@ describe('SignIn page', () => {
     });
     fireEvent.submit(getByTestId('form'));
 
-    setTimeout(() => {
+    await wait(() => {
       expect(dispatch).toHaveBeenCalledWith(
         signInRequest(login.email, login.password)
       );
-    }, 100);
+    });
   });
 });

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1566756323829" clover="3.2.0">
-  <project timestamp="1566756323830" name="All files">
+<coverage generated="1566770390027" clover="3.2.0">
+  <project timestamp="1566770390028" name="All files">
     <metrics statements="209" coveredstatements="74" conditionals="70" coveredconditionals="19" methods="69" coveredmethods="30" elements="348" coveredelements="123" complexity="0" loc="209" ncloc="209" packages="19" files="38" classes="38"/>
     <package name="src">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -262,7 +262,7 @@
       <metrics statements="41" coveredstatements="18" conditionals="12" coveredconditionals="6" methods="11" coveredmethods="6"/>
       <file name="actions.js" path="/home/ludwig/Downloads/MeetApp/frontend/src/store/modules/auth/actions.js">
         <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="23" count="1" type="stmt"/>

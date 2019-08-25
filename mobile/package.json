@@ -6,7 +6,8 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "start:cache": "react-native start --reset-cache",
-    "test": "jest",
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage",
     "lint": "eslint .",
     "postinstall": "jetify"
   },
@@ -35,6 +36,10 @@
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
+    "@testing-library/jest-native": "^3.0.2",
+    "@testing-library/react-native": "^4.0.7",
+    "@types/jest": "^24.0.18",
+    "axios-mock-adapter": "^1.17.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "^24.8.0",
     "babel-plugin-root-import": "^6.4.1",
@@ -54,6 +59,26 @@
     "react-test-renderer": "16.8.6"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "@testing-library/react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/config/ReactotronConfig.js",
+      "!src/assets/**",
+      "!src/components/Background/**",
+      "!src/services/api.js"
+    ],
+    "coverageDirectory": "__tests__/coverage",
+    "moduleNameMapper": {
+      "^~/(.*)": "<rootDir>/src/$1"
+    }
   }
 }

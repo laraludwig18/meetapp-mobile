@@ -32,7 +32,7 @@ describe('Auth reducer', () => {
     });
   });
 
-  it('@auth/SIGN_UP_SUCCESS', () => {
+  it('@auth/SIGN_IN_SUCCESS', () => {
     const state = reducer(INITIAL_STATE, Auth.signInSuccess(token, user));
 
     expect(state).toStrictEqual({
