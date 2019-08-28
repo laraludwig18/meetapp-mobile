@@ -28,6 +28,7 @@ export default function SignIn() {
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input
           data-testid="email"
+          autoFocus
           name="email"
           type="email"
           placeholder="Digite seu e-mail"

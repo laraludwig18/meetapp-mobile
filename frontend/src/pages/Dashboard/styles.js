@@ -38,6 +38,19 @@ export const Container = styled.div`
   }
 `;
 
+export const EmptyList = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+
+  p {
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+  }
+`;
+
 export const MeetupList = styled.ul`
   margin: 50px 5px;
 `;

@@ -28,7 +28,7 @@ export default function SignUp() {
       <img src={logo} alt="MeetApp" />
 
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="name" placeholder="Nome completo" />
+        <Input name="name" placeholder="Nome completo" autoFocus />
         <Input name="email" type="email" placeholder="Digite seu e-mail" />
         <Input
           name="password"

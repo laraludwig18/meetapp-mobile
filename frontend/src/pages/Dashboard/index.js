@@ -6,7 +6,7 @@ import { MdAddCircleOutline, MdChevronRight } from 'react-icons/md';
 
 import api from '~/services/api';
 
-import { Container, Meetup, MeetupList } from './styles';
+import { Container, EmptyList, Meetup, MeetupList } from './styles';
 
 export default function Dashboard() {
   const [meetups, setMeetups] = useState([]);
@@ -41,19 +41,25 @@ export default function Dashboard() {
           Novo meetup
         </Link>
       </div>
-      <MeetupList>
-        {meetups.map(meetup => (
-          <Meetup data-testid={meetup.id} key={meetup.id}>
-            <Link to={`/meetup-detail/${meetup.id}`}>
-              <p>{meetup.title}</p>
-              <div>
-                <span>{meetup.dateFormatted}</span>
-                <MdChevronRight size={24} color="#fff" />
-              </div>
-            </Link>
-          </Meetup>
-        ))}
-      </MeetupList>
+      {meetups.length ? (
+        <MeetupList>
+          {meetups.map(meetup => (
+            <Meetup data-testid={meetup.id} key={meetup.id}>
+              <Link to={`/meetup-detail/${meetup.id}`}>
+                <p>{meetup.title}</p>
+                <div>
+                  <span>{meetup.dateFormatted}</span>
+                  <MdChevronRight size={24} color="#fff" />
+                </div>
+              </Link>
+            </Meetup>
+          ))}
+        </MeetupList>
+      ) : (
+        <EmptyList>
+          <p>Você ainda não cadastrou nenhum meetup.</p>
+        </EmptyList>
+      )}
     </Container>
   );
 }
