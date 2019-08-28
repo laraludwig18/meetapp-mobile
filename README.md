@@ -17,6 +17,8 @@ App agregador de eventos para desenvolvedores
 
 **docker start redismeet** para iniciar banco redis
 
+Criar arquivo **.env** de acordo com o arquivo **.env.example**
+
 **yarn** para instalar as dependências
 
 **yarn dev** para rodar o projeto
