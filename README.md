@@ -13,6 +13,10 @@ App agregador de eventos para desenvolvedores
 
 **docker run --name redismeet -p 6379:6379 -d -t redis:alpine** para criar banco de dados redis
 
+**docker start databaseChallenge** para iniciar banco postgres
+
+**docker start redismeet** para iniciar banco redis
+
 **yarn** para instalar as dependências
 
 **yarn dev** para rodar o projeto
