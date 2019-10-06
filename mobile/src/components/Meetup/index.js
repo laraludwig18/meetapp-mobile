@@ -39,7 +39,7 @@ export default function Meetup({ item, isSubscribed, buttonAction }) {
           <Text>Organizador:</Text>
           <Text>{item.user.name}</Text>
         </TextContainer>
-        <SubscriptionButton onPress={buttonAction}>
+        <SubscriptionButton testID="meetup-button" onPress={buttonAction}>
           {buttonText}
         </SubscriptionButton>
       </Wrapper>

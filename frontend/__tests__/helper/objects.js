@@ -9,13 +9,39 @@ export const login = {
   password: '123456',
 };
 
+export const userCreated = {
+  name: 'Lara ludwig',
+  email: 'laraludwig18@gmail.com',
+  password: '123456',
+};
+
+export const userPassUpdated = {
+  name: 'Lara ludwig',
+  email: 'laraludwig18@gmail.com',
+  oldPassword: '123456',
+  password: '212121',
+  confirmPassword: '212121',
+};
+
 export const userUpdated = {
   id: 9,
   name: 'Lara',
   email: 'laraludwig18@gmail.com',
 };
 
+export const error = {
+  serverError: 'Houve um erro, tente novamente mais tarde!',
+};
+
 export const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6I1jiBYCr9GliBa4PAk';
+
+export const meetupCreated = {
+  title: 'Conhecendo Node JS',
+  description: 'Workshop sobre Node JS',
+  date: '2019-07-20T20:00:00.000Z',
+  location: 'Teste',
+  banner_id: 1,
+};
 
 export const meetup = {
   id: 3,

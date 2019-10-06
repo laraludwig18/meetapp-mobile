@@ -103,6 +103,7 @@ function Profile({ isFocused }) {
         <Form>
           <FormInput
             placeholder="Nome completo"
+            testID="name"
             hasError={!!errors.name}
             messageError={errors.name || null}
             autoCorrect={false}
@@ -113,6 +114,7 @@ function Profile({ isFocused }) {
           />
           <FormInput
             ref={emailRef}
+            testID="email"
             hasError={!!errors.email}
             messageError={errors.email || null}
             placeholder="Digite seu e-mail"

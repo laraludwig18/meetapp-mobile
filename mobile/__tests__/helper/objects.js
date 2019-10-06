@@ -9,13 +9,31 @@ export const login = {
   password: '123456',
 };
 
+export const userCreated = {
+  name: 'Lara ludwig',
+  email: 'laraludwig18@gmail.com',
+  password: '123456',
+};
+
 export const userUpdated = {
   id: 9,
   name: 'Lara',
   email: 'laraludwig18@gmail.com',
 };
 
+export const userPassUpdated = {
+  name: 'Lara ludwig',
+  email: 'laraludwig18@gmail.com',
+  oldPassword: '123456',
+  password: '212121',
+  confirmPassword: '212121',
+};
+
 export const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6I1jiBYCr9GliBa4PAk';
+
+export const error = {
+  serverError: 'Houve um erro, tente novamente mais tarde!',
+};
 
 export const meetup = {
   id: 3,

@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/17</span>
+        <span class='fraction'>17/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/17</span>
+        <span class='fraction'>17/17</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -109,44 +109,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,45 +163,45 @@ import { saveMeetupSuccess } from './actions';
 import history from '~/services/history';
 import api from '~/services/api';
 &nbsp;
-export function* <span class="fstat-no" title="function not covered" >saveMeetup(</span>{ payload }) {
-  const response = <span class="cstat-no" title="statement not covered" >yield call(api.get, `meetups/${payload.id}`);</span>
+export function* saveMeetup({ payload }) {
+  const response = yield call(api.get, `meetups/${payload.id}`);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  yield put(saveMeetupSuccess(response.data));</span>
+  yield put(saveMeetupSuccess(response.data));
 }
 &nbsp;
-export function* <span class="fstat-no" title="function not covered" >createMeetup(</span>{ payload }) {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    yield call(api.post, 'meetups', {</span>
+export function* createMeetup({ payload }) {
+  try {
+    yield call(api.post, 'meetups', {
       ...payload.meetup,
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    history.push('/dashboard');</span>
+    history.push('/dashboard');
   } catch (error) {
-    const { data } = <span class="cstat-no" title="statement not covered" >error.response;</span>
-<span class="cstat-no" title="statement not covered" >    toast.error(data.error);</span>
+    const { data } = error.response;
+    toast.error(data.error);
   }
 }
 &nbsp;
-export function* <span class="fstat-no" title="function not covered" >updateMeetup(</span>{ payload }) {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    yield call(api.put, `meetups/${payload.id}`, {</span>
+export function* updateMeetup({ payload }) {
+  try {
+    yield call(api.put, `meetups/${payload.id}`, {
       ...payload.meetup,
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    history.push('/dashboard');</span>
+    history.push('/dashboard');
   } catch (error) {
-    const { data } = <span class="cstat-no" title="statement not covered" >error.response;</span>
-<span class="cstat-no" title="statement not covered" >    toast.error(data.error);</span>
+    const { data } = error.response;
+    toast.error(data.error);
   }
 }
 &nbsp;
-export function* <span class="fstat-no" title="function not covered" >cancelMeetup(</span>{ payload }) {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    yield call(api.delete, `meetups/${payload.id}`);</span>
-<span class="cstat-no" title="statement not covered" >    history.push('/dashboard');</span>
+export function* cancelMeetup({ payload }) {
+  try {
+    yield call(api.delete, `meetups/${payload.id}`);
+    history.push('/dashboard');
   } catch (error) {
-    const { data } = <span class="cstat-no" title="statement not covered" >error.response;</span>
-<span class="cstat-no" title="statement not covered" >    toast.error(data.error);</span>
+    const { data } = error.response;
+    toast.error(data.error);
   }
 }
 &nbsp;
@@ -217,7 +217,7 @@ export default all([
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Aug 25 2019 18:59:49 GMT-0300 (Brasilia Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 02 2019 09:57:46 GMT-0300 (Brasilia Standard Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

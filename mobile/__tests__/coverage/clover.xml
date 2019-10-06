@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1566773560028" clover="3.2.0">
-  <project timestamp="1566773560028" name="All files">
-    <metrics statements="259" coveredstatements="78" conditionals="63" coveredconditionals="14" methods="82" coveredmethods="24" elements="404" coveredelements="116" complexity="0" loc="259" ncloc="259" packages="16" files="34" classes="34"/>
+<coverage generated="1567432871442" clover="3.2.0">
+  <project timestamp="1567432871442" name="All files">
+    <metrics statements="259" coveredstatements="97" conditionals="63" coveredconditionals="15" methods="82" coveredmethods="27" elements="404" coveredelements="139" complexity="0" loc="259" ncloc="259" packages="16" files="34" classes="34"/>
     <package name="src">
       <metrics statements="8" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="8" coveredmethods="0"/>
       <file name="App.js" path="/home/ludwig/Downloads/MeetApp/mobile/src/App.js">
@@ -206,8 +206,8 @@
         <line num="47" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
       </file>
       <file name="styles.js" path="/home/ludwig/Downloads/MeetApp/mobile/src/pages/SignIn/styles.js">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -324,13 +324,13 @@
       </file>
     </package>
     <package name="src.store.modules.auth">
-      <metrics statements="39" coveredstatements="18" conditionals="12" coveredconditionals="6" methods="10" coveredmethods="6"/>
+      <metrics statements="39" coveredstatements="33" conditionals="12" coveredconditionals="7" methods="10" coveredmethods="8"/>
       <file name="actions.js" path="/home/ludwig/Downloads/MeetApp/mobile/src/store/modules/auth/actions.js">
         <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
       </file>
       <file name="reducer.js" path="/home/ludwig/Downloads/MeetApp/mobile/src/store/modules/auth/reducer.js">
@@ -351,23 +351,23 @@
         <line num="32" count="1" type="stmt"/>
       </file>
       <file name="sagas.js" path="/home/ludwig/Downloads/MeetApp/mobile/src/store/modules/auth/sagas.js">
-        <metrics statements="20" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
+        <metrics statements="20" coveredstatements="15" conditionals="6" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
         <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="48" count="0" type="stmt"/>
         <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -375,7 +375,7 @@
       </file>
     </package>
     <package name="src.store.modules.user">
-      <metrics statements="17" coveredstatements="10" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="3"/>
+      <metrics statements="17" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="4"/>
       <file name="actions.js" path="/home/ludwig/Downloads/MeetApp/mobile/src/store/modules/user/actions.js">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -394,13 +394,13 @@
         <line num="22" count="1" type="stmt"/>
       </file>
       <file name="sagas.js" path="/home/ludwig/Downloads/MeetApp/mobile/src/store/modules/user/sagas.js">
-        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.utils">

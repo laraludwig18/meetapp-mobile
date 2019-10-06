@@ -9,6 +9,7 @@ import { signFailure, signInSuccess } from './actions';
 export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
+
     const response = yield call(api.post, 'sessions', {
       email,
       password,
@@ -25,6 +26,7 @@ export function* signIn({ payload }) {
   } catch (error) {
     const { data } = error.response;
     toast.error(data.error);
+
     yield put(signFailure());
   }
 }
