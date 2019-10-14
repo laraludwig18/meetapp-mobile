@@ -1,6 +1,6 @@
 # MeetApp
 
-App agregador de eventos para desenvolvedores
+App agregador de eventos para desenvolvedores desenvolvido como projeto final do Bootcamp GoStack 7.0
 
 ## Telas
 
