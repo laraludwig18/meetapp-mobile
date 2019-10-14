@@ -6,8 +6,11 @@ App agregador de eventos para desenvolvedores
 
 ### Web
 
-[Imgur](https://i.imgur.com/7O4zi8Z.png)
+<a href="https://imgur.com/7O4zi8Z"><img src="https://i.imgur.com/7O4zi8Z.png" title="source: imgur.com" /></a>
 
+### Mobile
+
+<a href="https://imgur.com/D0AouEJ"><img src="https://i.imgur.com/D0AouEJ.png" title="source: imgur.com" /></a>
 
 ## Inicialização
 
