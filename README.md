@@ -6,8 +6,7 @@ App agregador de eventos para desenvolvedores
 
 ### Web
 
-
-
+[Imgur](https://i.imgur.com/7O4zi8Z.png)
 
 
 ## Inicialização
