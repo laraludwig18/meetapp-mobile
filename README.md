@@ -2,53 +2,96 @@
 
 App agregador de eventos para desenvolvedores
 
+## Telas
+
+### Web
+
+
+
+
 
 ## Inicialização
 
 ### Backend
 
-**docker run --name databaseChallenge -e POSTGRES_PASSWORD=suasenha -p 5432:5432 -d postgres** para criar banco de dados postgres
-
-**docker run --name redismeet -p 6379:6379 -d -t redis:alpine** para criar banco de dados redis
-
-**docker start databaseChallenge** para iniciar banco postgres
-
-**docker start redismeet** para iniciar banco redis
-
+Criar banco de dados postgres:
+```
+docker run --name databaseChallenge -e POSTGRES_PASSWORD=suasenha -p 5432:5432 -d postgres
+```
+Criar banco de dados redis:
+```
+docker run --name redismeet -p 6379:6379 -d -t redis:alpine
+```
+Iniciar banco postgres:
+```
+docker start databaseChallenge
+```
+Iniciar banco redis:
+```
+docker start redismeet
+```
 Criar arquivo **.env** de acordo com o arquivo **.env.example**
 
-**yarn sequelize db:migrate** para migrar tabelas para o postgres
-
-**yarn** para instalar as dependências
-
-**yarn dev** para rodar o projeto
-
-**yarn queue** para rodar a fila
+Migrar tabelas para postgres:
+```
+**yarn sequelize db:migrate
+```
+Instalar dependências:
+```
+yarn
+```
+Rodar projeto:
+```
+yarn dev
+```
+Rodar fila:
+```
+yarn queue
+```
 
 ### Frontend
 
-**yarn** para instalar as dependências
-
-**yarn start** para rodar o projeto
+Instalar dependências:
+```
+yarn
+```
+Rodar projeto:
+```
+yarn start
+```
 
 ### Mobile
 
 #### Android
 
-**yarn** para instalar as dependências
-
-**yarn android** para instalar app no dispositivo
-
-**yarn start** para executar app
+Instalar dependências:
+```
+yarn
+```
+Instalar app no dispositivo:
+```
+yarn android
+```
+Rodar projeto:
+```
+yarn start
+```
 
 #### IOS
 
-**yarn** para instalar as dependências
-
-**pod install** na pasta ios para instalar as dependências
-
-**react-native run-ios** para instalar app no dispositivo
-
-**yarn start** para executar app
-
-
+Instalar dependências:
+```
+yarn
+```
+Dentro da pasta ios para instalar dependências:
+```
+pod install
+```
+Instalar app no dispositivo:
+```
+react-native run-ios
+```
+Rodar projeto:
+```
+yarn start
+```
