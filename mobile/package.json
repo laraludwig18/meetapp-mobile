@@ -1,6 +1,6 @@
 {
   "name": "mobile",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "husky": {
     "hooks": {
@@ -9,7 +9,9 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint -fix", "git add"
+      "eslint -fix",
+      "cross-env CI=true yarn test --bail --findRelatedTests",
+      "git add"
     ]
   },
   "scripts": {
@@ -55,6 +57,7 @@
     "babel-eslint": "10.0.1",
     "babel-jest": "24.8.0",
     "babel-plugin-root-import": "6.4.1",
+    "cross-env": "^6.0.3",
     "eslint": "6.1.0",
     "eslint-config-airbnb": "18.0.0",
     "eslint-config-prettier": "6.0.0",
