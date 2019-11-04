@@ -1,22 +1,23 @@
 import { runSaga } from 'redux-saga';
 import { Alert } from 'react-native';
 
-import { navigate } from '~/services/navigator';
 import { apiMock } from '../../helper/mocks';
 import { userPassUpdated, userUpdated, error } from '../../helper/objects';
 
 import { updateUserSuccess } from '~/store/modules/user/actions';
 import { updateUser } from '~/store/modules/user/sagas';
 
+jest.mock('~/services/navigator');
+
 describe('User saga', () => {
-  // it('should be able to update user', async () => {
-  //   const dispatch = jest.fn();
-  //   apiMock.onPut('users').reply(200, userUpdated);
-  //   await runSaga({ dispatch }, () =>
-  //     updateUser({ payload: { user: userPassUpdated } })
-  //   ).toPromise();
-  //   expect(dispatch).toHaveBeenCalledWith(updateUserSuccess(userUpdated));
-  // });
+  it('should be able to update user', async () => {
+    const dispatch = jest.fn();
+    apiMock.onPut('users').reply(200, userUpdated);
+    await runSaga({ dispatch }, () =>
+      updateUser({ payload: { user: userPassUpdated } })
+    ).toPromise();
+    expect(dispatch).toHaveBeenCalledWith(updateUserSuccess(userUpdated));
+  });
 
   it('should update users fail', async () => {
     const dispatch = jest.fn();
