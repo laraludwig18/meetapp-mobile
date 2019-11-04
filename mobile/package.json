@@ -10,6 +10,7 @@
   "lint-staged": {
     "*.js": [
       "cross-env CI=true jest --bail --findRelatedTests",
+      "eslint -fix",
       "git add"
     ]
   },
