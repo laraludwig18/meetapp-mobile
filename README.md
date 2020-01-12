@@ -4,30 +4,11 @@ App agregador de eventos para desenvolvedores desenvolvido como projeto final do
 
 ## Telas
 
-### Web
-
-<a href="https://imgur.com/7O4zi8Z"><img src="https://i.imgur.com/7O4zi8Z.png" title="source: imgur.com" /></a>
-
-### Mobile
-
 <a href="https://imgur.com/D0AouEJ"><img src="https://i.imgur.com/D0AouEJ.png" title="source: imgur.com" /></a>
 
 ## Inicialização
 
-### Frontend
-
-Instalar dependências:
-```
-yarn
-```
-Rodar projeto:
-```
-yarn start
-```
-
-### Mobile
-
-#### Android
+### Android
 
 Instalar dependências:
 ```
@@ -42,7 +23,7 @@ Rodar projeto:
 yarn start
 ```
 
-#### IOS
+### IOS
 
 Instalar dependências:
 ```
