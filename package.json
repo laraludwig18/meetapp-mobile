@@ -19,7 +19,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start:cache": "react-native start --reset-cache",
-    "test": "jest --watchAll",
+    "test": "jest --runInBand",
     "coverage": "jest --coverage",
     "lint": "eslint .",
     "postinstall": "jetify"
