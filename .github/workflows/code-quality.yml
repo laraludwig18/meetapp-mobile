@@ -2,20 +2,13 @@ name: Check Code Quality
 on: [push]
 jobs:
   code-quality:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: npm install
-        uses: actions/npm@master
-        with:
-          args: install
-      - name: npm test
-        uses: actions/npm@master
-        with:
-          args: run test
-      - name: npm lint
-        uses: actions/npm@master
-        with:
-          args: run lint
+      - name: install dependencies
+        run: npm install
 
-    
+      - name: run tests
+        run: npm run test
+
+      - name: run lint
+        run: npm run lint
