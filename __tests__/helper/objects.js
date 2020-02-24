@@ -41,7 +41,7 @@ export const meetup = {
   description: 'Workshop sobre Node JS',
   date: '2019-07-20T20:00:00.000Z',
   location: 'Teste',
-  dateFormatted: '20 de julho, às 17h',
+  dateFormatted: '20 de julho, às 16h',
   user: {
     id: 1,
     name: 'Thomas Martinez',
