@@ -1,6 +1,5 @@
 import { runSaga } from 'redux-saga';
 
-import { navigate } from '~/services/navigator';
 import { apiMock } from '../../helper/mocks';
 import { userCreated, error, user, token } from '../../helper/objects';
 
@@ -31,20 +30,6 @@ describe('Auth saga', () => {
 
     expect(dispatch).toHaveBeenCalledWith(signFailure());
   });
-
-  // it('should be able to create user', async () => {
-  //   const dispatch = jest.fn();
-
-  //   navigate.mockReturnValue("");
-
-  //   apiMock.onPost('users').reply(200, { user });
-
-  //   await runSaga({ dispatch }, () =>
-  //     signUp({ payload: { userCreated } })
-  //   ).toPromise();
-
-  //   expect(navigate).toHaveBeenCalledWith('SignIn');
-  // });
 
   it('should post users fail and call signFailure', async () => {
     const dispatch = jest.fn();

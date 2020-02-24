@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Header } from 'react-navigation';
 
 import { logo } from '~/assets/images';
 
