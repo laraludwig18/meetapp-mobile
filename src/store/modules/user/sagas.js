@@ -1,7 +1,7 @@
 import { Alert } from 'react-native';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
-import { navigate } from '~/services/navigator';
+import { navigate } from '~services/rootNavigation';
 import api from '~/services/api';
 import { updateUserSuccess } from '~/store/modules/user/actions';
 
@@ -13,7 +13,7 @@ export function* updateUser({ payload }) {
     navigate('Dashboard');
   } catch (error) {
     const { data } = error.response;
-    Alert.alert('Erro ao atualizar perfil', data.error);
+    Alert.alert('Erro ao atualizar perfil', data.message);
   }
 }
 

@@ -1,9 +1,13 @@
+import 'react-native-gesture-handler';
+
 import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import OneSignal from 'react-native-onesignal';
+import { NavigationContainer } from '@react-navigation/native';
 
+import { navigationRef } from '~/services/rootNavigation';
 import '~/config/ReactotronConfig';
 import { store, persistor } from '~/store';
 import App from '~/App';
@@ -33,12 +37,14 @@ export default class Index extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <StatusBar barStyle="light-content" backgroundColor="#22202C" />
-          <App />
-        </PersistGate>
-      </Provider>
+      <NavigationContainer ref={navigationRef}>
+        <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <StatusBar barStyle="light-content" backgroundColor="#22202C" />
+            <App />
+          </PersistGate>
+        </Provider>
+      </NavigationContainer>
     );
   }
 }

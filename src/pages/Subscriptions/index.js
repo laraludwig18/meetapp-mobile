@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import { withNavigationFocus } from 'react-navigation';
-import PropTypes from 'prop-types';
+import { useIsFocused } from '@react-navigation/native';
 
 import api from '~/services/api';
 import Background from '~/components/Background';
@@ -16,7 +15,9 @@ import {
   MeetupList,
 } from './styles';
 
-function Subscriptions({ isFocused }) {
+export default function Subscriptions() {
+  const isFocused = useIsFocused();
+
   const [subscriptions, setSubscriptions] = useState([]);
 
   async function loadSubscriptions() {
@@ -73,9 +74,3 @@ function Subscriptions({ isFocused }) {
     </Background>
   );
 }
-
-export default withNavigationFocus(Subscriptions);
-
-Subscriptions.propTypes = {
-  isFocused: PropTypes.bool.isRequired,
-};

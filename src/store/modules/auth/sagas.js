@@ -1,7 +1,7 @@
 import { Alert } from 'react-native';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
-import { navigate } from '~/services/navigator';
+import { navigate } from '~services/rootNavigation';
 import api from '~/services/api';
 
 import { signFailure, signInSuccess } from './actions';
@@ -23,7 +23,7 @@ export function* signIn({ payload }) {
     yield put(signInSuccess(token, user));
   } catch (error) {
     const { data } = error.response;
-    Alert.alert('Erro no login', data.error);
+    Alert.alert('Erro no login', data.message);
     yield put(signFailure());
   }
 }
@@ -37,7 +37,7 @@ export function* signUp({ payload }) {
     navigate('SignIn');
   } catch (error) {
     const { data } = error.response;
-    Alert.alert('Erro na criação', data.error);
+    Alert.alert('Erro na criação', data.message);
     yield put(signFailure());
   }
 }

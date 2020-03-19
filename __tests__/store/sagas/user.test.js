@@ -7,8 +7,6 @@ import { userPassUpdated, userUpdated, error } from '../../helper/objects';
 import { updateUserSuccess } from '~/store/modules/user/actions';
 import { updateUser } from '~/store/modules/user/sagas';
 
-jest.mock('~/services/navigator');
-
 describe('User saga', () => {
   it('should be able to update user', async () => {
     const dispatch = jest.fn();
@@ -24,7 +22,7 @@ describe('User saga', () => {
 
     const alertMock = jest.spyOn(Alert, 'alert');
 
-    apiMock.onPut('users').reply(500, { error: error.serverError });
+    apiMock.onPut('users').reply(500, { message: error.serverError });
 
     await runSaga({ dispatch }, () =>
       updateUser({ payload: { userPassUpdated } })

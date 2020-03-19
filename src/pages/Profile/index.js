@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withNavigationFocus } from 'react-navigation';
+import { useIsFocused } from '@react-navigation/native';
 import * as Yup from 'yup';
-import PropTypes from 'prop-types';
 
 import { signOut } from '~/store/modules/auth/actions';
 import { updateUserRequest } from '~/store/modules/user/actions';
@@ -48,9 +47,12 @@ const schema = Yup.object().shape(
   ['oldPassword', 'password', 'confirmPassword']
 );
 
-function Profile({ isFocused }) {
-  const profile = useSelector(state => state.user.profile);
+export default function Profile() {
   const dispatch = useDispatch();
+
+  const profile = useSelector(state => state.user.profile);
+
+  const isFocused = useIsFocused();
 
   const [name, setName] = useState(profile.name);
   const [email, setEmail] = useState(profile.email);
@@ -167,9 +169,3 @@ function Profile({ isFocused }) {
     </Background>
   );
 }
-
-export default withNavigationFocus(Profile);
-
-Profile.propTypes = {
-  isFocused: PropTypes.bool.isRequired,
-};

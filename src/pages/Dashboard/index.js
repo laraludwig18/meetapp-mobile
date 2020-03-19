@@ -69,7 +69,7 @@ export default function Dashboard() {
       Alert.alert('', 'Inscrição realizada com sucesso! :)');
     } catch (error) {
       const { data } = error.response;
-      Alert.alert('Houve um erro ao realizar a sua inscrição', data.error);
+      Alert.alert('Houve um erro ao realizar a sua inscrição', data.message);
     }
   }
 
