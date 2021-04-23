@@ -2,9 +2,6 @@
 
 App agregador de eventos para desenvolvedores
 
-## Telas
-
-<a href="https://imgur.com/D0AouEJ"><img src="https://i.imgur.com/D0AouEJ.png" title="source: imgur.com" /></a>
 
 ## Inicialização
 
